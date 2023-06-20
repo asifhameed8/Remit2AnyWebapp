@@ -1,0 +1,70 @@
+@use "_variables";
+header {
+  &.bgSecondary {
+    background-color: variables.$secondaryLightColor !important;
+    transition: 0.5s all ease-in;
+  }
+  padding: 10px 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .navbar {
+    &-brand {
+      img {
+        width: 80px;
+      }
+    }
+    &-toggler {
+      border: unset;
+      &:focus {
+        box-shadow: unset;
+      }
+    }
+    &-collapse {
+      transition: none;
+      @media screen and (max-width: variables.$mediumScreenSizeEnd) {
+        transition: all ease 0.4s;
+        box-shadow: rgba(100, 100, 111, 0.2) -14px 12px 29px 0px;
+        position: absolute;
+        top: calc(84.73px - 10px);
+        background: variables.$whiteColor;
+        left: 0px;
+        right: 0px;
+        .navbar-nav {
+          .nav-item {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-top: 1px solid variables.$borderColor;
+          }
+        }
+      }
+      .nav-item {
+        .nav-link {
+          font-weight: 400;
+          color: variables.$blackColor;
+          &.active {
+            color: variables.$secondaryColor;
+          }
+        }
+      }
+    }
+    .dropdown-toggle {
+      &::after {
+        display: none;
+      }
+    }
+    .dropdown-menu {
+      &.show {
+        width: 250px;
+        padding: 0.5rem;
+        margin-top: 0.8rem !important;
+        .dropdown-item {
+          font-size: variables.$fontSize14;
+          padding-bottom: 0.4rem;
+          padding-top: 0.4rem;
+          &:hover {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use "_variables";
+
+.confirm{
+    .selected-coin{
+        p{
+            font-weight: bolder;
+            span{
+                margin-left:1px ;
+                color: variables.$accentColor;
+                font-weight: 100;
+                img{
+                    width: 30px;
+                }
+            }
+        }
+    }   
+}

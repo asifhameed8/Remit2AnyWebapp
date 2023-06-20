@@ -1,0 +1,18 @@
+@use "_variables";
+
+.transaction-detail {
+  .row {
+    & > :first-child {
+      background-color: variables.$primaryColor;
+      color: variables.$whiteColor;
+    }
+    .otherDetail {
+      & > :nth-child(even) {
+        margin-bottom: 1rem;
+      }
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

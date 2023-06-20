@@ -1,0 +1,112 @@
+@use "_variables";
+.datePicker {
+  ::ng-deep {
+    ngb-datepicker {
+      .ngb-dp-header {
+        background-color: unset;
+        ngb-datepicker-navigation {
+          margin-bottom: 0.5rem;
+          .ngb-dp-arrow {
+            .ngb-dp-arrow-btn {
+              &:not([disabled]) {
+                color: variables.$primaryColor;
+              }
+              .ngb-dp-navigation-chevron {
+                border-width: 0.14em 0.14em 0 0;
+                width: 0.6em;
+                height: 0.6em;
+              }
+              &:focus {
+                outline: unset;
+              }
+            }
+          }
+
+          ngb-datepicker-navigation-select {
+            .form-select {
+              margin: 2px;
+            }
+          }
+        }
+      }
+      .ngb-dp-months {
+        .ngb-dp-month {
+          .ngb-dp-month-name {
+            font-size: variables.$fontSize16;
+            background-color: unset;
+            font-weight: 500;
+          }
+          .ngb-dp-week {
+            padding-left: variables.$fontSize14;
+            padding-right: variables.$fontSize14;
+            background-color: unset;
+            &.ngb-dp-weekdays {
+              margin-bottom: 5px;
+            }
+            .ngb-dp-day {
+              font-size: variables.$fontSize14;
+              width: 100%;
+              text-align: center;
+              margin: 0.2rem;
+              .custom-day {
+                text-align: center;
+                padding: 0.2rem;
+                display: inline-block;
+                height: 2rem;
+                width: 2rem;
+                line-height: 1.8;
+                &.range,
+                &:hover {
+                  background-color: variables.$primaryColor;
+                  color: variables.$whiteColor;
+                }
+                &.faded {
+                  background-color: rgba(
+                    $color: variables.$primaryColor,
+                    $alpha: 0.4
+                  );
+                }
+              }
+              &:last-child {
+                color: variables.$dangerColor;
+              }
+              &.disabled {
+                opacity: 0.35;
+              }
+            }
+          }
+          .ngb-dp-weekday {
+            font-style: normal;
+            color: variables.$greyColor;
+            width: 100%;
+          }
+        }
+      }
+      @media screen and (max-width: 638px) {
+        width: 100%;
+        .ngb-dp-months {
+          flex-direction: column;
+          .ngb-dp-month {
+            .ngb-dp-week {
+              .ngb-dp-day {
+                margin: 0.08rem;
+              }
+            }
+          }
+        }
+      }
+      @media screen and (min-width: variables.$mediumScreenSizeStart) and (max-width: variables.$largeScreenSizeStart) {
+        .ngb-dp-months {
+          flex-direction: column;
+          .ngb-dp-month {
+            .ngb-dp-week {
+              .ngb-dp-day {
+                margin: 0.08rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

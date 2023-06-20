@@ -1,0 +1,83 @@
+<section class="add-bank-account">
+  <header class="d-flex justify-content-between border-bottom p-3">
+    <h5 class="m-0">Add Indian Bank Account</h5>
+    <button
+      (click)="activeModal.close()"
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+    ></button>
+  </header>
+  <section class="body p-3">
+    <form [formGroup]="bacnkAccountForm">
+      <div class="mb-3">
+        <label for="ifscCode" class="form-label">IFSC Code</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="e.g.ABCDE12345"
+          id="ifscCode"
+          formControlName="ifscCode"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="accountName" class="form-label">Account Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="e.g.Nagarjuna Malempati"
+          id="accountName"
+          formControlName="accountName"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="accountNumber" class="form-label">Account Number</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="e.g.12346678900001"
+          id="accountNumber"
+          formControlName="accountNumber"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="confirmAccountNumber" class="form-label"
+          >Confirm Account Number</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          placeholder="e.g.12346678900001"
+          id="confirmAccountNumber"
+          formControlName="confirmAccountNumber"
+          required
+        />
+      </div>
+
+      <div class="form-check mb-4">
+        <input
+          class="form-check-input"
+          formControlName="disclaimer"
+          type="checkbox"
+          id="disclaimer"
+        />
+        <label class="form-check-label" for="disclaimer">
+          I confirm the bank account details above
+        </label>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary w-100"
+        (click)="addAccount()"
+      >
+        Add Account
+      </button>
+    </form>
+  </section>
+</section>

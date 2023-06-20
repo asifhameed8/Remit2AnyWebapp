@@ -1,0 +1,14 @@
+@use '_variables';
+
+.signup{
+    .box{
+        background-color: rgba($color: variables.$whiteColor, $alpha: 0.45);
+        box-shadow: 0px 0px 42px rgba($color: variables.$blackColor, $alpha: 0.08);
+        border-radius: 8px;
+        padding: 3rem 2rem;
+        h4{
+            letter-spacing: 0.1rem;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<div class="progressbar">
+    <div class="progress" id="progress" [style.width.%]="getProgress()"></div>
+    <div *ngFor="let step of steps; let i = index" 
+         [class.progress-step-active]="i === currentStepIndex"
+         [class.progress-step-check]="step.completed"
+         class="progress-step" 
+         [attr.data-title]="step.title">
+    </div>
+</div>
+<!-- <div class="stepper-controls">
+    <button (click)="previousStep()" [disabled]="currentStepIndex === 0">Previous</button>
+    <button (click)="nextStep()" [disabled]="currentStepIndex === steps.length - 1">Next</button>
+</div> -->

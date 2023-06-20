@@ -1,0 +1,71 @@
+<section class="flows py-4">
+  <div class="container-lg">
+    <div class="text-center" appAnimation="slideUp">
+      <h1 class="fw-bold">Welcome to {{appName}}</h1>
+      <p>
+        Using {{appName}} platform for the first time? Follow the steps to get
+        onboard.
+      </p>
+    </div>
+    <div class="row mt-5 mb-4">
+      <div class="col-md-6 col-xl-4 col-12" appAnimation="zoomOut">
+        <div class="box">
+          <div class="inner">
+            <div class="pic text-center">
+              <img src="./assets/_images/signup.webp" alt="signup" />
+            </div>
+            <h4 class="mt-4 text-center fw-bold">Signup/Sign In</h4>
+            <p class="text-center">(Onetime)</p>
+            <p class="text-center">
+              To get started, simply
+              <a class="link-primary fw-bold" routerLink="/auth/login"
+                >signup</a
+              >
+              with an email and password. Once your email is verified,
+              <a class="link-primary fw-bold" routerLink="/auth/login">login</a>
+              to your account.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4 col-12" appAnimation="zoomOut">
+        <div class="box">
+          <div class="inner">
+            <div class="pic text-center">
+              <img src="./assets/_images/addUser.webp" alt="addUser" />
+            </div>
+            <h4 class="mt-4 text-center fw-bold">KYC</h4>
+            <p class="text-center">(Onetime)</p>
+            <p class="text-center">
+              Fulfill your KYC requirements by providing a selfie and a
+              government-issued identification, such as a Pancard, Aadhar card,
+              Voter card, or Passport.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-4 col-12" appAnimation="zoomOut">
+        <div class="box">
+          <div class="inner">
+            <div class="pic text-center">
+              <img src="./assets/_images/bank.webp" alt="bank" />
+            </div>
+            <h4 class="mt-4 text-center fw-bold">Bank account</h4>
+            <p class="text-center">(Onetime)</p>
+            <p class="text-center">
+              Enter your bank details, including your name, account number, and
+              IFSC code, and after the information is confirmed, a verification
+              transaction will be sent to your bank account.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button class="btn btn-primary" routerLink="/auth/login">
+        GET STARTED
+      </button>
+    </div>
+  </div>
+</section>

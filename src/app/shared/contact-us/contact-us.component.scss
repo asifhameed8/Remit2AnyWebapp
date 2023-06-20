@@ -1,0 +1,10 @@
+@use "_variables";
+
+.contactUs {
+  background-color: variables.$primaryLightColor;
+  @media only screen and (max-width: variables.$xsScreenSizeEnd) {
+    img {
+      width: 100%;
+    }
+  }
+}

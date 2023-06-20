@@ -1,0 +1,27 @@
+@use '_variables';
+
+.clients{
+    background-color: variables.$primaryLightColor;
+    .row{
+        > div{
+            text-align: center;
+            margin-bottom: 1.5rem;
+                img{
+                    transition: all 0.4s ease-in-out;
+                }
+            &:hover{
+                img{
+                    filter: none;
+                    transform: scale(1.1);
+                }
+            }
+        }
+        
+        @media only screen and (min-width: variables.$largeScreenSizeStart) {
+            .col-lg-2{
+                width: 14.2%;
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@use "_variables";
+
+// is me colors ka poochna hai
+.select-crypto{
+    .card{
+        border-color: rgba($color: variables.$blackColor, $alpha: 0.35);
+        cursor: default;
+        .card-body {
+            span{
+                img {
+                  width: 40px;
+                }
+                p{
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #9F9F9F;
+                    margin: 10px 0px 5px 0px;
+                }
+            }
+            p{
+                font-weight: 400;
+                font-size: 14px;
+                color: #696969;
+                margin-bottom: 5px;
+            }
+        }
+
+        &:hover
+        {
+            border-color: rgba($color: variables.$secondaryColor, $alpha: 1.0);
+        }
+    }
+}

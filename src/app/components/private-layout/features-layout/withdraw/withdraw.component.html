@@ -1,0 +1,30 @@
+<section class="withdraw shadow-sm bg-white rounded-5 pt-4 pb-5 my-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 mx-auto">
+                <h4 class="text-center fw-bold">Withdraw</h4>
+                
+                <app-stepper #stepper [steps]="mySteps" [initialStepIndex]="activeStep" (stepChange)="onStepChange($event)"></app-stepper>
+                <app-select-crypto *ngIf="activeStep == 0"></app-select-crypto>
+                <app-withdraw-amount *ngIf="activeStep == 1"></app-withdraw-amount>
+                <app-confirm *ngIf="activeStep == 2"></app-confirm>
+                <app-success *ngIf="activeStep == 3"></app-success>
+                <app-review *ngIf="activeStep == 4"></app-review>
+                <!-- <div class="stepper-controls">
+                    <button (click)="stepper.previousStep()" [disabled]="stepper.currentStepIndex === 0">Previous</button>
+                    <button (click)="stepper.nextStep()" [disabled]="stepper.currentStepIndex === stepper.steps.length - 1">Next</button>
+                </div> -->
+
+
+                <div class="buttons text-center mt-3">
+                    <a *ngIf="stepper.currentStepIndex > 0 && stepper.currentStepIndex < 3" (click)="stepper.previousStep()" class="btn btn-outline-primary mx-1">GO BACK</a>
+                    <a *ngIf="stepper.currentStepIndex >= 0 && stepper.currentStepIndex < 3" (click)="stepper.nextStep()" class="btn btn-outline-primary mx-1">CONTINUE</a>
+                    <a *ngIf="stepper.currentStepIndex === 3" (click)="stepper.nextStep()" class="btn btn-outline-primary mx-1">REVIEW DETAILS</a>
+                    <a *ngIf="stepper.currentStepIndex === 4"  class="btn btn-outline-primary mx-1">BACK TO HOME</a>
+                    <a *ngIf="stepper.currentStepIndex === 4"  class="btn btn-outline-primary mx-1">SUBMIT</a>
+                </div>
+
+            </div>
+        </div>
+    </div>    
+</section>

@@ -1,0 +1,33 @@
+@use "_variables";
+
+.withdraw-amount{
+    
+    .select-another-coin{
+        text-decoration: none;
+        color: variables.$blackColor;
+    
+    &:hover{
+        color: variables.$accentColor;
+    }
+}
+
+.selected-coin{
+    p{
+        font-weight: bolder;
+        span{
+            margin-left:1px ;
+            color: variables.$accentColor;
+            font-weight: 100;
+            img{
+                width: 30px;
+            }
+        }
+    }
+}  
+
+.adding-links{
+    text-decoration: none;
+    color: variables.$accentColor;
+    font-size: 14px;
+}
+}

@@ -1,0 +1,56 @@
+<section class="bank-account-detail">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-6 col-lg-5 py-3 col-12 d-flex flex-column p-0 justify-content-center align-items-center"
+      >
+        <div class="icon">
+          <img
+            width="60"
+            height="60"
+            ngSrc="./assets/_images/bank-logo.svg"
+            alt="icon"
+          />
+        </div>
+        <h3 class="my-3">{{ accountDetails.bank_account.bank_name }}</h3>
+        <h5 class="my-3">
+          {{ accountDetails.bank_account.account_number }} | India
+        </h5>
+        <span class="badge rounded-pill text-bg-light fw-light px-3"
+          >Primary</span
+        >
+      </div>
+      <div class="col-md-6 col-lg-7 col-12 px-0">
+        <header class="d-flex justify-content-between border-bottom p-3">
+          <h5 class="m-0">Account Details</h5>
+          <button
+            (click)="activeModal.close()"
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+          ></button>
+        </header>
+        <section class="body px-3 py-4 d-flex flex-column">
+          <span>Account Type:</span>
+          <span class="text-muted">{{ accountDetails.account_type }}</span>
+
+          <span>Account Name:</span>
+          <span class="text-muted">{{ accountDetails.bank_account.name }}</span>
+
+          <span>Account Number</span>
+          <span class="text-muted">{{
+            accountDetails.bank_account.account_number
+          }}</span>
+
+          <span>Bank Country</span>
+          <span class="text-muted">India</span>
+
+          <span>Status</span>
+          <span class="text-success">{{
+            (accountDetails.active && "Active") || "In-Active"
+          }}</span>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

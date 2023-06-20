@@ -1,0 +1,20 @@
+@use "_variables";
+
+.bank-account-detail {
+  .row {
+    & > :first-child {
+      background-color: variables.$primaryColor;
+      color: variables.$whiteColor;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+    .body {
+      & > :nth-child(even) {
+        margin-bottom: 1rem;
+      }
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

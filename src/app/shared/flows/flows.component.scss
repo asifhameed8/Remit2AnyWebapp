@@ -1,0 +1,86 @@
+@use "_variables";
+
+.flows {
+  background-color: variables.$primaryLightColor;
+  .row {
+    & > div {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 4rem;
+      .box {
+        position: relative;
+        box-shadow: 0px 0 25px 0
+          rgba($color: variables.$blackColor, $alpha: 0.1);
+        border-radius: 12px;
+        border: 1px solid variables.$whiteColor;
+        padding: 0.5rem;
+        flex: 1 0 auto;
+        &::before {
+          font-weight: 600;
+          font-size: 5.5rem;
+          text-align: center;
+          text-shadow: -3px 1px 0 #ccc, 4px 3px 0 variables.$whiteColor,
+            1px -1px 0 variables.$whiteColor, -1px -1px 0 variables.$whiteColor;
+          letter-spacing: 5px;
+          position: absolute;
+          top: -75px;
+          left: 0;
+          right: 0;
+        }
+        h4 {
+          color: rgba($color: variables.$accentColor, $alpha: 0.6);
+        }
+        .inner {
+          padding: 3rem 2rem;
+          height: 100%;
+        }
+      }
+      &:first-child {
+        .box {
+          &::before {
+            content: "01";
+            color: #ffcec2;
+          }
+          .inner {
+            background-color: #fff3f0;
+          }
+        }
+      }
+      &:nth-child(2) {
+        .box {
+          &::before {
+            content: "02";
+            color: #b8e7ff;
+          }
+          .inner {
+            background-color: #f0faff;
+          }
+        }
+      }
+      &:last-child {
+        .box {
+          &::before {
+            content: "03";
+            color: #d1ffc6;
+          }
+          .inner {
+            background-color: #f6fff4;
+          }
+        }
+      }
+
+      @media only screen and (min-width: variables.$mediumScreenSizeStart) and (max-width: variables.$largeScreenSizeStart) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      @media only screen and (max-width: variables.$xsScreenSizeEnd) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@use "_variables";
+.topics {
+  ::ng-deep {
+    .accordion {
+      .accordion-item {
+        border: unset;
+        border-radius: unset;
+        border-bottom: 1px solid
+          rgba($color: variables.$borderColor, $alpha: 0.4);
+        .accordion-button {
+          padding-top: 0.8rem;
+          padding-bottom: 0.8rem;
+          h5 {
+            @media screen and (max-width: variables.$xsScreenSizeEnd) {
+              font-size: variables.$fontSize16;
+            }
+          }
+          &:focus {
+            box-shadow: unset;
+          }
+          &:not(.collapsed) {
+            color: variables.$blackColor;
+            background-color: unset;
+            box-shadow: unset;
+          }
+        }
+      }
+    }
+  }
+}

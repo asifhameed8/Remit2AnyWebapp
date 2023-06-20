@@ -1,0 +1,32 @@
+@use "_variables";
+
+.homeApp {
+  background-image: url("../../../assets/_images/bgImage.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 84.73px;
+  h1 {
+    font-weight: 900;
+  }
+  img {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+    width: 100% !important;
+  }
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+}

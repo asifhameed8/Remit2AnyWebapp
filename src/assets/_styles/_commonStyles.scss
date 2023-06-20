@@ -1,0 +1,139 @@
+@use "_variables";
+
+body {
+  font-family: Rubik, Roboto, Sans, sans-serif;
+  margin: 0;
+  padding: 0;
+  .btn {
+    border: unset;
+    &-primary {
+      background-color: variables.$primaryColor;
+      padding: 11px 29px;
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: variables.$secondaryColor;
+      }
+      &:active {
+        background-color: variables.$primaryColor !important;
+      }
+    }
+    &.btn-outline-primary {
+      color: variables.$primaryColor;
+      border: 1px solid variables.$primaryColor !important;
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: transparent;
+      }
+      &:active {
+        color: variables.$primaryColor;
+      }
+      &:focus-visible {
+        box-shadow: unset;
+      }
+    }
+    &.btn-outline-danger {
+      border: 1px solid var(--bs-danger);
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: transparent;
+        color: var(--bs-danger);
+      }
+    }
+    &.btn-link-secondary {
+      color: variables.$whiteColor;
+      &:hover {
+        color: variables.$secondaryColor;
+      }
+    }
+  }
+  .btn-close {
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+  a {
+    &.link-primary {
+      text-decoration: none;
+      color: variables.$primaryColor !important;
+      &:hover {
+        color: variables.$secondaryColor !important;
+      }
+    }
+    &.link-danger {
+      text-decoration: none;
+      &:hover {
+        color: variables.$primaryColor !important;
+      }
+    }
+    &.link-secondary {
+      text-decoration: none;
+      color: variables.$secondaryColor !important;
+      &:hover {
+        color: variables.$whiteColor !important;
+      }
+    }
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: variables.$mediumScreenSizeEnd) {
+    .container-lg {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: variables.$xsScreenSizeEnd) {
+    p,
+    a {
+      font-size: variables.$fontSize14 !important;
+    }
+  }
+
+  .form-check-input[type="checkbox"] {
+    border-radius: unset;
+    &:focus {
+      box-shadow: unset;
+      border-color: variables.$secondaryColor;
+    }
+    &:checked {
+      background-color: variables.$whiteColor;
+      border-color: variables.$secondaryColor;
+      background-image: unset;
+      position: relative;
+      &::before {
+        position: absolute;
+        left: -1px;
+        top: 0.25rem;
+        height: 7px;
+        width: 1.5px;
+        background-color: variables.$secondaryColor;
+        content: "";
+        transform: translateX(8px) rotate(-45deg);
+        transform-origin: left bottom;
+      }
+      &::after {
+        position: absolute;
+        left: 0px;
+        bottom: 2.5px;
+        height: 1.5px;
+        width: 18px;
+        background-color: variables.$secondaryColor;
+        content: "";
+        transform: translateX(8px) rotate(-45deg);
+        transform-origin: left bottom;
+      }
+    }
+  }
+  .form-control,
+  .form-select {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    border-radius: 0.25rem;
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+}

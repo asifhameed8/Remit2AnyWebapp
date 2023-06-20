@@ -1,0 +1,18 @@
+@use '_variables';
+
+.skills{
+    .row{
+        img{
+            width: 100%;
+        }
+        .btn{
+            border-radius: 25px;
+            &:first-child{
+                background-color: variables.$accentColor;
+                &:hover{
+                    background-color: variables.$secondaryColor;
+                }
+            }
+        }
+    }
+}

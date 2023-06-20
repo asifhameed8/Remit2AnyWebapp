@@ -1,0 +1,82 @@
+<section class="profile">
+  <section class="personalDetail p-4 shadow-sm bg-white rounded">
+    <h5>Personal Details</h5>
+    <hr />
+    <div class="row" *ngIf="kycAdded">
+      <label class="col-12 col-sm-4 col-lg-2 text-sm-end text-muted mb-sm-3"
+        >Name:</label
+      >
+      <div class="col-12 col-sm-8 col-lg-10">
+        <p>{{ profile?.fullname }}</p>
+      </div>
+      <label class="col-12 col-sm-4 col-lg-2 text-sm-end text-muted mb-sm-3"
+        >Date of Birth:</label
+      >
+      <div class="col-12 col-sm-8 col-lg-10">
+        <p>
+          {{ getReadableDOB(profile?.dateOfBirth) }}
+        </p>
+      </div>
+    </div>
+    <app-perform-kyc
+      [desc]="descriptionKYC"
+      *ngIf="!kycAdded && profile"
+    ></app-perform-kyc>
+    <app-loader></app-loader>
+  </section>
+
+  <section class="phoneInfo p-4 shadow-sm bg-white rounded mt-3">
+    <h5>Phone</h5>
+    <hr />
+    <div class="row" *ngIf="profile?.phoneNumber">
+      <label class="col-12 col-sm-4 col-lg-2 text-sm-end text-muted mb-sm-3"
+        >Mobile:</label
+      >
+      <div class="col-12 col-sm-8 col-lg-10">
+        <p>
+          {{ profile?.phoneNumber }}
+
+          <!-- <ng-container *ngIf="profile?.phoneNumber"> -->
+          <span class="badge rounded-pill text-white fw-light ms-3"
+            >Primary</span
+          >
+          <button class="btn ms-3 btn-outline-primary rounded-5 lh-1">
+            <img
+              width="16"
+              height="16"
+              ngSrc="./assets/_images/editIconDark.svg"
+              alt="icon"
+              class="align-text-top"
+            />
+            <span
+              class="d-none d-sm-inline-block ms-2"
+              (click)="editPhoneNumber()"
+              >Edit</span
+            >
+          </button>
+          <!-- </ng-container> -->
+        </p>
+      </div>
+    </div>
+    <app-loader></app-loader>
+  </section>
+
+  <section class="emailInfo p-4 shadow-sm bg-white rounded mt-3">
+    <h5>Email Adresses</h5>
+    <hr />
+    <div class="row" *ngIf="profile?.email">
+      <label class="col-12 col-sm-4 col-lg-2 text-sm-end text-muted mb-sm-3"
+        >Email ID:</label
+      >
+      <div class="col-12 col-sm-8 col-lg-10">
+        <p>
+          {{ profile?.email }}
+          <span class="badge rounded-pill text-white fw-light ms-3"
+            >Primary</span
+          >
+        </p>
+      </div>
+    </div>
+    <app-loader></app-loader>
+  </section>
+</section>

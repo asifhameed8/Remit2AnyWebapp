@@ -1,0 +1,57 @@
+@use "_variables";
+
+footer {
+  border-top: 1px solid rgba($color: variables.$borderColor, $alpha: 0.25);
+  h6 {
+    font-weight: 600;
+    color: variables.$secondaryColor;
+  }
+  .nav {
+    .nav-item {
+      .nav-link {
+        color: variables.$blackColor;
+        padding-left: 0;
+        padding-right: 0;
+        display: inline-block;
+        &:hover {
+          color: variables.$secondaryColor;
+        }
+      }
+    }
+  }
+  .navbar {
+    .nav-item {
+      .nav-link {
+        color: variables.$blackColor;
+        &:hover {
+          color: variables.$secondaryColor;
+        }
+      }
+    }
+  }
+  .icons {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      border-radius: 50%;
+      background: #000;
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  @media only screen and (max-width: variables.$mediumScreenSizeStart) {
+    .order-first {
+      img {
+        width: 160px;
+      }
+      p {
+        font-size: variables.$fontSize20;
+      }
+    }
+  }
+}

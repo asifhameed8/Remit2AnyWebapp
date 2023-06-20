@@ -1,0 +1,36 @@
+<section class="bank-account-deletion">
+  <header class="d-flex justify-content-between border-bottom p-3">
+    <h5 class="m-0">Bank Account deletion</h5>
+    <button
+      (click)="activeModal.dismiss()"
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+    ></button>
+  </header>
+  <section class="body p-3">
+    <p>
+      Are you sure you want to delete
+      <span class="text-warning">{{
+        accountDetails.bank_account.account_number
+      }}</span>
+      of
+      <span class="text-warning">{{
+        accountDetails.bank_account.bank_name
+      }}</span
+      >?
+    </p>
+    <p>
+      You will not be able to perform future transfers to this bank account. You
+      can still see transactions performed to this account.
+    </p>
+
+    <span class="text-danger">This operation can not be undone. </span>
+  </section>
+  <footer class="p-3 d-flex flex-row-reverse border-top">
+    <button class="btn btn-outline-danger ms-1" (click)="deleteBankAccount()">
+      Delete
+    </button>
+    <button class="btn btn-outline-primary me-1">Don't Delete</button>
+  </footer>
+</section>

@@ -1,0 +1,27 @@
+<section class="phone-number-edit">
+    <header class="d-flex justify-content-between border-bottom p-3">
+      <h5 class="m-0">Phone</h5>
+      <button
+        (click)="activeModal.close()"
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+      ></button>
+    </header>
+    <section class="body py-3 px-4">
+        <form #f="ngForm" [formGroup]="phoneForm">
+            <ngx-mat-intl-tel-input
+            [preferredCountries]="['us', 'gb']"
+            [enablePlaceholder]="true"
+            [enableSearch]="true"
+            name="phone"
+            describedBy="phoneInput"
+            formControlName="phone"
+            ></ngx-mat-intl-tel-input>
+        </form>
+        <div class="d-grid">
+            <button class="btn btn-primary">Save Changes</button>
+        </div>
+    </section>
+</section>
+  

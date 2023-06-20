@@ -1,0 +1,9 @@
+@use "_variables";
+
+.profile {
+  word-break: break-word;
+  .badge {
+    background-color: variables.$primaryColor;
+    border: 1px solid variables.$primaryColor;
+  }
+}

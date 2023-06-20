@@ -1,0 +1,49 @@
+<section class="datePicker">
+  <div class="col-xl-4 col-sm-6 col-12 mb-3 position-relative">
+    <input
+      class="form-control pe-5"
+      [showWeekNumbers]="false"
+      readonly
+      autocomplete="off"
+      placeholder="Form Date - To Date"
+      name="dp"
+      ngbDatepicker
+      [dayTemplate]="t"
+      [autoClose]="'outside'"
+      [outsideDays]="'visible'"
+      [navigation]="'select'"
+      [displayMonths]="2"
+      (dateSelect)="onDateSelection($event)"
+      [maxDate]="maxDate"
+      #dp="ngbDatepicker"
+    />
+    <button
+      *ngIf="fromDate || toDate"
+      type="button"
+      [ngStyle]="{ right: '40px' }"
+      class="btn h-100 p-0 position-absolute top-0"
+      (click)="clearDate()"
+    >
+      <img alt="icon" src="./assets/_images/close.webp" />
+    </button>
+    <button
+      type="button"
+      class="btn h-100 pe-3 ps-0 position-absolute top-0 end-0"
+      (click)="dp.toggle()"
+    >
+      <img width="16" alt="icon" src="./assets/_images/calendar.webp" />
+    </button>
+    <ng-template #t let-date="date" let-focused="focused">
+      <span
+        class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null"
+      >
+        {{ date.day }}
+      </span>
+    </ng-template>
+  </div>
+</section>

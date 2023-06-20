@@ -1,0 +1,147 @@
+<section class="kyc py-4">
+  <div class="row">
+    <div class="col-md-9 col-lg-7 col-xl-5 mx-auto">
+      <div class="bg-white shadow-md rounded p-3 pt-sm-4 pb-sm-4 px-sm-5">
+        <h3 class="fw-400 text-center mb-4">KYC</h3>
+        <hr class="mx-n3 mx-sm-n5" />
+        <ng-container
+          *ngIf="!serverError; else other"
+          [ngTemplateOutlet]="processStep"
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #other>
+  <h4 class="text-center text-danger">Server Error!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/error.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    {{ serverErrorMessage }}
+  </p>
+</ng-template>
+
+<ng-template #not_started>
+  <p class="lead text-center">We need to verify your Identity!</p>
+  <p class="text-center small text-black-50">
+    In order to create an account, we need to verify your identity.
+    <br />
+    You just need to go through some steps which will help us to build a secure
+    system together.
+  </p>
+  <button
+    class="btn btn-primary w-100 mb-3"
+    [disabled]="kycBtn"
+    type="button"
+    (click)="startKYCProcess()"
+  >
+    Start Process
+  </button>
+</ng-template>
+
+<ng-template #started>
+  <h4 class="text-center text-primary">In Process!</h4>
+  <p class="text-center small text-black-50">
+    It is in process state we need to wait to complete the process until it is
+    reject or approved.
+  </p>
+</ng-template>
+
+<ng-template #user_cancelled>
+  <h4 class="text-center text-danger">Sorry!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/error.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    Your process has been cancelled. Try again to fulfill your KYC process.
+  </p>
+  <button
+    class="btn btn-primary w-100 mb-3"
+    type="button"
+    (click)="goBack(KYCStatus.not_started)"
+  >
+    Go Back
+  </button>
+</ng-template>
+
+<ng-template #error>
+  <h4 class="text-center text-danger">Server Error!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/error.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">Try again later or retry now.</p>
+  <button
+    class="btn btn-primary w-100 mb-3"
+    type="button"
+    (click)="goBack(KYCStatus.not_started)"
+  >
+    Go Back
+  </button>
+</ng-template>
+
+<ng-template #needs_review>
+  <h4 class="text-center text-success">Under Review!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/congrats.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    Your process has been finished and it is in under Review <br />
+    please wait it will take some time.
+  </p>
+</ng-template>
+
+<ng-template #auto_approved>
+  <h4 class="text-center text-success">Congratulations!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/congrats.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    Your process has been finished and it has approved.
+  </p>
+</ng-template>
+
+<ng-template #manually_approved>
+  <h4 class="text-center text-success">Congratulations!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/congrats.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    Your process has been finished and it has approved.
+  </p>
+</ng-template>
+
+<ng-template #auto_declined>
+  <h4 class="text-center text-danger">Sorry!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/error.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    Your process has been declined. Try again to fulfill your KYC process.
+  </p>
+  <button
+    class="btn btn-primary mb-3 w-100"
+    type="button"
+    (click)="goBack(KYCStatus.not_started)"
+  >
+    Go Back
+  </button>
+</ng-template>
+
+<ng-template #manually_declined>
+  <h4 class="text-center text-danger">Sorry!</h4>
+  <div class="icon text-center">
+    <img class="my-2" src="./assets/_images/error.webp" alt="icon" />
+  </div>
+  <p class="text-center small text-black-50">
+    Your process has been declined. Try again to fulfill your KYC process.
+  </p>
+  <button
+    class="btn btn-primary w-100 mb-3"
+    type="button"
+    (click)="goBack(KYCStatus.not_started)"
+  >
+    Go Back
+  </button>
+</ng-template>

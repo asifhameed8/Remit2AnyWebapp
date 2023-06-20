@@ -1,0 +1,16 @@
+@use "_variables";
+.goTop {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999999;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  background-color: variables.$primaryColor;
+  img {
+    vertical-align: text-bottom;
+    width: 20px;
+    height: 20px;
+  }
+}

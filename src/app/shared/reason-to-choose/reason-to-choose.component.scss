@@ -1,0 +1,43 @@
+@use "_variables";
+
+.reasonChoose {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: variables.$primaryLightColor;
+  .row {
+    & > div {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      margin-bottom: 1.5rem;
+    }
+    .box {
+      background-color: variables.$whiteColor;
+      border: solid 1px variables.$borderColor;
+      border-radius: 12px;
+      box-shadow: 0px 0 25px 0 rgba($color: variables.$blackColor, $alpha: 0.1);
+      h5 {
+        color: variables.$primaryColor;
+        margin-top: 1.75rem;
+        margin-bottom: 1.75rem;
+      }
+      p {
+        line-height: 1.75rem;
+      }
+
+      &:hover {
+        border: solid 1px transparent;
+        box-shadow: rgba($color: variables.$secondaryColor, $alpha: 0.27) 1px
+          0px 12px;
+        transition: all ease-in 0.5s;
+        h5 {
+          color: variables.$secondaryColor;
+        }
+        .pic {
+          img {
+            filter: brightness(100%) hue-rotate(190deg) saturate(600%);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<section class="baseLayout py-4">
+  <div class="row">
+    <div class="col-xl-3 col-md-4">
+      <aside>
+        <app-profile-picture class="d-none d-sm-block"></app-profile-picture>
+        <app-connect-wallet></app-connect-wallet>
+        <app-chat-with-us class="d-none d-sm-block"></app-chat-with-us>
+      </aside>
+    </div>
+    <div class="col-xl-9 col-md-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

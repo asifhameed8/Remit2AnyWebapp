@@ -1,0 +1,36 @@
+@use "_variables";
+
+.withdraw {
+  button {
+    margin-top: 1.5rem;
+    border: 1px solid variables.$borderColor;
+    padding: 1rem;
+    &:hover {
+      border: 1px solid transparent;
+      box-shadow: rgba($color: variables.$secondaryColor, $alpha: 0.27) 1px 0px
+        12px;
+      transition: 0.5s;
+      a {
+        color: variables.$secondaryColor;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: variables.$blackColor;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+  }
+  .row {
+    .col-6 {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media only screen and (max-width: variables.$largeScreenSizeEnd) {
+    img {
+      width: 100%;
+    }
+  }
+}

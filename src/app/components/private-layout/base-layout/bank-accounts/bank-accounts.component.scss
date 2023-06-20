@@ -1,0 +1,60 @@
+@use "_variables";
+
+.accounts {
+  .col {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    min-height: 190px;
+    .account-card {
+      position: relative;
+      background: linear-gradient(
+        127deg,
+        rgba($color: variables.$primaryColor, $alpha: 0.46) 0%,
+        variables.$primaryColor 100%
+      );
+      .card-overlay {
+        display: none;
+      }
+      &:hover {
+        cursor: pointer;
+        .card-overlay {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          top: 0;
+          background: rgba($color: variables.$blackColor, $alpha: 0.7);
+          transition: all 0.3s ease;
+          .btn-link-secondary {
+            &:hover {
+              &:first-child {
+                path {
+                  fill: variables.$secondaryColor;
+                }
+              }
+              &:last-child {
+                path {
+                  stroke: variables.$secondaryColor;
+                }
+              }
+            }
+          }
+        }
+      }
+      .row {
+        .col-8 {
+          border-left: 1px solid
+            rgba($color: variables.$whiteColor, $alpha: 0.15);
+        }
+      }
+    }
+    .addAccount {
+      background-color: variables.$privatePagesBgColor;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

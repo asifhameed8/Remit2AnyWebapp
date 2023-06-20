@@ -1,0 +1,143 @@
+<section class="profileCompletness p-4 shadow-sm bg-white rounded">
+  <h5 class="mb-0">
+    Profile Completeness
+    <span
+      class="badge rounded-pill text-success fw-light ms-3 border"
+      *ngIf="profileInfo?.completionPercentage"
+    >
+      {{ profileInfo.completionPercentage }}%
+    </span>
+  </h5>
+  <hr
+    class="d-sm-block"
+    [ngClass]="{
+      'd-none':
+        profileInfo?.kycadded &&
+        profileInfo?.bankAccountAdded &&
+        profileInfo?.mobileAdded
+    }"
+  />
+  <div
+    *ngIf="profileInfo"
+    [ngClass]="{
+      'd-none':
+        profileInfo?.kycadded &&
+        profileInfo?.bankAccountAdded &&
+        profileInfo?.mobileAdded
+    }"
+    class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 d-sm-flex"
+  >
+    <div class="col d-grid">
+      <div
+        class="card"
+        [ngClass]="{
+          'border-danger': !profileInfo?.kycadded,
+          'border-success': profileInfo?.kycadded
+        }"
+      >
+        <div
+          *ngIf="profileInfo?.kycadded; else addkyc"
+          class="card-body d-flex align-items-center flex-column justify-content-around"
+        >
+          <img
+            ngSrc="./assets/_images/envelop.webp"
+            alt="envelop"
+            [width]="40"
+            [height]="40"
+          />
+          <span class="mt-3 text-success"> KYC Completed </span>
+        </div>
+
+        <ng-template #addkyc>
+          <div
+            routerLink="/secure/kyc"
+            class="card-body d-flex align-items-center flex-column justify-content-around pointer"
+          >
+            <img
+              ngSrc="./assets/_images/envelop.webp"
+              alt="envelop"
+              [width]="40"
+              [height]="40"
+            />
+            <span class="mt-3 text-danger"> Perform KYC </span>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col d-grid">
+      <div
+        class="card"
+        [ngClass]="{
+          'border-danger': !profileInfo?.bankAccountAdded,
+          'border-success': profileInfo?.bankAccountAdded
+        }"
+      >
+        <div
+          *ngIf="profileInfo?.bankAccountAdded; else addAccount"
+          class="card-body d-flex align-items-center flex-column justify-content-around"
+        >
+          <img
+            ngSrc="./assets/_images/addedBank.webp"
+            alt="addedBank"
+            [width]="40"
+            [height]="40"
+          />
+          <span class="mt-3 text-success">Bank Account Added</span>
+        </div>
+
+        <ng-template #addAccount>
+          <div
+            routerLink="/secure/bank-accounts"
+            class="card-body d-flex align-items-center flex-column justify-content-around pointer"
+          >
+            <img
+              ngSrc="./assets/_images/addedBank.webp"
+              alt="addedBank"
+              [width]="40"
+              [height]="40"
+            />
+            <span class="mt-3 text-danger">Add Bank Account </span>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col d-grid">
+      <div
+        class="card"
+        [ngClass]="{
+          'border-danger': !profileInfo?.mobileAdded,
+          'border-success': profileInfo?.mobileAdded
+        }"
+      >
+        <div
+          *ngIf="profileInfo?.mobileAdded; else addMobile"
+          class="card-body d-flex align-items-center flex-column justify-content-around"
+        >
+          <img
+            ngSrc="./assets/_images/mobileAdded.webp"
+            alt="mobileAdded"
+            [width]="40"
+            [height]="40"
+          />
+          <span class="mt-3 text-success">Mobile Added</span>
+        </div>
+
+        <ng-template #addMobile>
+          <div
+            routerLink="/secure/profile"
+            class="card-body d-flex align-items-center flex-column justify-content-around pointer"
+          >
+            <img
+              ngSrc="./assets/_images/mobileAdded.webp"
+              alt="mobileAdded"
+              [width]="40"
+              [height]="40"
+            />
+            <span class="mt-3 text-danger">Add Mobile </span>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <app-loader></app-loader>
+</section>

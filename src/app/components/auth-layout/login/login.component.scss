@@ -1,0 +1,46 @@
+@use "_variables";
+
+.login {
+  ::ng-deep {
+    div [data-amplify-container] {
+      width: 100%;
+    }
+    .amplify-tabs-item[data-state="active"] {
+      color: variables.$primaryColor;
+      border-color: variables.$primaryColor;
+    }
+    .amplify-button {
+      color: variables.$primaryColor;
+      &[type="submit"] {
+        background-color: variables.$primaryColor;
+        color: variables.$whiteColor;
+        &:hover {
+          background-color: variables.$secondaryColor;
+        }
+      }
+    }
+  }
+
+  .box {
+    background-color: rgba($color: variables.$whiteColor, $alpha: 0.45);
+    box-shadow: 0px 0px 42px rgba($color: variables.$blackColor, $alpha: 0.08);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    h4 {
+      letter-spacing: 0.1rem;
+      font-weight: 600;
+    }
+    @media only screen and (max-width: variables.$xsScreenSizeEnd) {
+      padding: 0;
+      .col-md-6 {
+        padding: 0;
+      }
+    }
+
+    @media only screen and (min-width: variables.$mediumScreenSizeStart) and (max-width: variables.$largeScreenSizeStart) {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+<section class="transactionList shadow-sm bg-white rounded">
+  <h5 class="p-4">{{ title }}</h5>
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="text-end">Bank Credit</th>
+          <th class="d-none d-md-table-cell text-end" scope="col">
+            TDS Credit
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let obj of transactionsList
+              | slice
+                : (pageConfig.page - 1) * pageConfig.pageSize
+                : pageConfig.page * pageConfig.pageSize;
+            index as i
+          "
+          (click)="transactionDetail(obj)"
+        >
+          <td>
+            <div class="d-flex flex-column">
+              <span>
+                {{ obj?.created_at | date : "dd" }}
+              </span>
+              <span>
+                {{ obj.created_at | date : "MMM" }}
+              </span>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex flex-column">
+              <!-- <span>
+                {{ obj.narration }}
+              </span> -->
+              <span>
+                {{ obj.purpose | titlecase }}
+              </span>
+            </div>
+          </td>
+          <td>{{ obj.status | titlecase }}</td>
+          <td class="text-end">{{ obj.amount | INRCurrency }}</td>
+          <td class="d-none d-md-table-cell text-end">
+            {{ obj.amount / 99 | INRCurrency }}
+          </td>
+        </tr>
+        <tr *ngIf="transactionsList && !transactionsList.length">
+          <td [attr.colspan]="5" class="text-center">No Transactions Found</td>
+        </tr>
+      </tbody>
+      <caption class="p-0">
+        <app-loader></app-loader>
+      </caption>
+    </table>
+  </div>
+  <div
+    class="pagination py-3 d-flex justify-content-center"
+    *ngIf="
+      (transactionsList && transactionsList.length > pageConfig.pageSize) ||
+      viewAll
+    "
+  >
+    <ngb-pagination
+      *ngIf="transactionsList && transactionsList.length > pageConfig.pageSize"
+      [collectionSize]="pageConfig.collectionSize"
+      [(page)]="pageConfig.page"
+      [pageSize]="pageConfig.pageSize"
+      [maxSize]="5"
+      [rotate]="true"
+      [ellipses]="false"
+      [boundaryLinks]="true"
+      (pageChange)="pageChange()"
+    >
+    </ngb-pagination>
+    <a
+      *ngIf="viewAll"
+      class="link-primary pointer"
+      routerLink="/secure/transactions"
+      >Click To View All</a
+    >
+  </div>
+</section>

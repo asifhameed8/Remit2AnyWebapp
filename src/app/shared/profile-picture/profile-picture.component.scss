@@ -1,0 +1,17 @@
+@use "_variables";
+
+.profilePicture {
+  text-align: center;
+  a {
+    svg {
+      vertical-align: text-top;
+      margin-right: 6px;
+      fill: variables.$primaryColor;
+    }
+    &:hover {
+      svg {
+        fill: variables.$secondaryColor;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<section class="confirm">
+    <div class="row justify-content-sm-between text-center">
+        <div class="col-12 col-sm-6">
+            <div class="my-2 text-sm-start selected-coin">
+                <p>Selected Coin:
+                    <span>
+                        <img src="./assets/_images/client-1.webp" alt="">
+                        Ethereum (ETH)
+                    </span>
+                </p>
+            </div>
+            <hr/>
+            <div class="row mb-3 text-secondary">
+                <div class="col-12 col-sm-6 text-sm-start mb-2 mb-sm-0">
+                    Total Amount to Withdraw
+                </div>
+                <div class="col-12 col-sm-6 text-sm-end">
+                    5000.00 INR
+                </div>
+            </div>
+            <div class="row mb-3 text-secondary">
+                <div class="col-12 col-sm-6 text-sm-start mb-2 mb-sm-0">
+                    Crypto Withdrawal Quantity
+                </div>
+                <div class="col-12 col-sm-6 text-sm-end">
+                    5000.00 INR
+                </div>
+            </div>
+            <div class="row mb-3 text-secondary">
+                <div class="col-12 col-sm-6 text-sm-start mb-2 mb-sm-0">
+                    TDS Paid to Government
+                </div>
+                <div class="col-12 col-sm-6 text-sm-end">
+                    50.00 INR
+                </div>
+            </div>
+            <div class="row mb-3 text-secondary">
+                <div class="col-12 col-sm-6 text-sm-start mb-3">
+                    Transaction Fees
+                </div>
+                <div class="col-12 col-sm-6 text-sm-end">
+                    00.00 INR
+                </div>
+            </div>
+            <hr/>
+            <div class="row mb-3 fw-bold">
+                <div class="col-12 col-sm-6 text-sm-start mb-2 mb-sm-0">
+                    Bank Credit
+                </div>
+                <div class="col-12 col-sm-6 text-sm-end">
+                    4950.00 INR
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-5">
+            <div class="card shadow-sm mb-4 rounded-5">
+                <div class="card-body">
+                    <p class="mb-0 mt-3 text-secondary">Money Transfer Successful to</p>
+                    <h4 class="fw-bold">Nagarjuna Malempati</h4>
+                    <p class="text-secondary">(ICIC Bank - 5550)</p>
+                </div>
+            </div>
+            <h5 class="fw-bold">Withdrawal Transaction Id</h5>
+            <p class="text-muted">6658484-sdr458g-rsvgre658789</p>
+            <div class="captcha">
+                <form [formGroup]="FormGroup" class="d-inline-block">
+                    <ngx-recaptcha2 #captchaElem
+                      [siteKey]="siteKey"
+                      formControlName="recaptcha">
+                    </ngx-recaptcha2>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="buttons text-center mt-3">
+        <a href="#" class="btn btn-outline-primary mx-1">GO BACK</a>
+        <a href="#" class="btn btn-outline-primary mx-1">CONTINUE</a>
+    </div> -->
+</section>

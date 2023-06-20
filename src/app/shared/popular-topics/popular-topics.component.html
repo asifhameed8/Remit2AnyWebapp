@@ -1,0 +1,89 @@
+<section class="topics py-4">
+  <div class="container-lg">
+    <div appAnimation="slideUp">
+      <h2 class="text-center fw-bold">Popular Topics</h2>
+      <p class="text-center">These are set of frequently asked questions.</p>
+    </div>
+    <div class="row my-5">
+      <div class="col-12 col-xl-6" appAnimation="slideUp">
+        <ngb-accordion
+          #a="ngbAccordion"
+          (panelChange)="b.collapseAll()"
+          [closeOthers]="true"
+        >
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <h5>I forgot the password for my account.</h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <p>
+                Please go to Login page and follow instructions to forgot
+                password.
+              </p>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <h5>How do I withdraw funds from my account?</h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <ol>
+                <li>Add bank account</li>
+                <li>Connect Wallet</li>
+                <li>Select amount to withdraw and bank account</li>
+                <li>Approve transaction on blockchain</li>
+              </ol>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <h5>How do I link bank account to my account ?</h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              Go to Payment methods page and add bank account. Bank account name
+              must match with the account name present in Bank.
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+      <div class="col-12 col-xl-6" appAnimation="slideUp">
+        <ngb-accordion
+          #b="ngbAccordion"
+          (panelChange)="a.collapseAll()"
+          [closeOthers]="true"
+        >
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <h5>How can I view my withdrawHistoy?</h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <p>
+                Go to Tranactions page to view all tranactions filter them by
+                date.
+              </p>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <h5>Closing your account.</h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <p>Please reachout to customer care to close the account.</p>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <h5>How do I confirm the email address on my account?</h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <p>
+                You will receive a code to your email address that needs to be
+                provided on signup to confirm the account.
+              </p>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+</section>

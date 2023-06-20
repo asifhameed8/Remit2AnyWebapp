@@ -1,0 +1,22 @@
+@use '_variables';
+
+.withdrawProcess{
+    h1{
+        &.start{
+            color: variables.$processStartColor
+        }
+        &.process{
+            color: variables.$processPendingColor;
+        }
+        &.success{
+            color: variables.$processSuccessColor;
+        }
+    }
+
+
+    @media only screen and (max-width: variables.$largeScreenSizeEnd) {
+        img{
+            width: 100%;
+        }
+    }
+}

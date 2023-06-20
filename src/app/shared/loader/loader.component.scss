@@ -1,0 +1,12 @@
+@use "_variables";
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .spinner-border {
+    color: variables.$primaryColor;
+    width: 45px;
+    height: 45px;
+  }
+}

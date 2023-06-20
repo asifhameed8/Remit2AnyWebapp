@@ -1,0 +1,13 @@
+<section class="transactions">
+  <h2 class="mb-4">Transactions</h2>
+  <app-date-range-picker
+    [resetDate]="resetState"
+    (clear)="reset()"
+    (range)="dateRange($event)"
+  ></app-date-range-picker>
+  <app-transactions-list
+    [title]="title"
+    [transactionsList]="transactionsList"
+  ></app-transactions-list>
+  <app-transaction-sync (reSync)="syncTransactions()"></app-transaction-sync>
+</section>

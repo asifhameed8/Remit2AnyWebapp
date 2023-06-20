@@ -1,0 +1,114 @@
+<header class="fixed-top bg-white" #header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-lg">
+      <div class="logo">
+        <a class="navbar-brand" [routerLink]="'home'">
+          <img src="./assets/_images/logo.webp" alt="logo" />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          appClickOutSide
+          exclude="collapse"
+          (clickOutside)="isMenuCollapsed = true"
+          (click)="isMenuCollapsed = !isMenuCollapsed"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ng-container
+          *ngIf="user | async; then loggedInBlock; else notLoggedInBlock"
+        ></ng-container>
+      </div>
+      <ng-container
+        *ngIf="user | async; then profileDropDown; else LoginButton"
+      ></ng-container>
+    </div>
+  </nav>
+</header>
+
+<ng-template #notLoggedInBlock>
+  <ul class="navbar-nav mx-auto">
+    <li class="nav-item mx-lg-3" *ngFor="let item of NonLoggedInRoutes">
+      <a
+        class="nav-link"
+        (click)="isMenuCollapsed = true"
+        [routerLink]="item.url"
+        routerLinkActive="active"
+      >
+        {{ item.title }}
+      </a>
+    </li>
+    <li class="nav-item mx-lg-3">
+      <a
+        href="https://usd2inrtransfer.com/home"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+        >Instructions</a
+      >
+    </li>
+  </ul>
+</ng-template>
+<ng-template #loggedInBlock>
+  <ul class="navbar-nav mx-auto">
+    <li class="nav-item mx-lg-3" *ngFor="let item of LoggedInRoutes">
+      <a
+        class="nav-link"
+        (click)="isMenuCollapsed = true"
+        [routerLink]="item.url"
+        routerLinkActive="active"
+      >
+        {{ item.title }}
+      </a>
+    </li>
+    <li class="nav-item mx-lg-3">
+      <a
+        href="https://usd2inrtransfer.com/home"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+        >Instructions</a
+      >
+    </li>
+  </ul>
+</ng-template>
+<ng-template #LoginButton>
+  <button
+    class="btn btn-primary"
+    (click)="isMenuCollapsed = true"
+    routerLink="/auth/login"
+  >
+    Login
+  </button>
+</ng-template>
+<ng-template #profileDropDown>
+  <div ngbDropdown>
+    <button type="button" class="btn p-0" id="dropdown" ngbDropdownToggle>
+      <img
+        width="38"
+        src="./assets/_images/profileThumb.webp"
+        alt="profileThumb"
+      />
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdown">
+      <button class="btn" [routerLink]="'/secure/profile'" ngbDropdownItem>
+        My Profile
+      </button>
+      <button
+        class="btn"
+        [routerLink]="'/secure/bank-accounts'"
+        ngbDropdownItem
+      >
+        Payment Methods
+      </button>
+      <button class="btn" ngbDropdownItem>Notifications</button>
+      <hr />
+      <button class="btn" ngbDropdownItem>Need Help?</button>
+      <button class="btn" ngbDropdownItem (click)="logout()">Sign Out</button>
+    </div>
+  </div>
+</ng-template>

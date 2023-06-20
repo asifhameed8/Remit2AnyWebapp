@@ -1,0 +1,20 @@
+@use "_variables";
+
+.questioning {
+  padding-top: calc(84.73px + 6rem);
+  padding-bottom: 1.5rem;
+  background-image: url("../../../assets/_images/help.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  h1 {
+    @media screen and (min-width: variables.$smScreenSizeStart) {
+      font-size: 3.5rem;
+    }
+  }
+
+  .row {
+    .form-control {
+      border: 2px solid variables.$primaryColor;
+    }
+  }
+}
